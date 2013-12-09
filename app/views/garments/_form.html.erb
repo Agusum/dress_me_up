@@ -1,10 +1,12 @@
 <%= simple_form_for(@garment) do |f| %>
+	<%= f.input :name %>
+	<%= f.file_field :image %>
+	<%= f.input :category %>
+	
   <%= f.error_notification %>
 
   <div class="form-inputs">
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <%= f.submit %>
 <% end %>

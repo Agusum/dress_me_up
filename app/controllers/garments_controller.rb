@@ -70,5 +70,9 @@ class GarmentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def garment_params
       params[:garment]
+      params.require(:garment).permit(
+      :name, 
+      :image, 
+      :category) 
     end
 end
