@@ -1,7 +1,7 @@
 <%= simple_form_for(@garment) do |f| %>
 	<%= f.input :name %>
 	<%= f.file_field :image %>
-	<%= f.input :category %>
+	<%= f.input :category, collection: Garment::CATEGORY, as: :select %>
 
   <%= f.submit %>
 <% end %>
