@@ -3,15 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Garment</th>
+      <th>Image</th>
+      <th>Category</th>
     </tr>
   </thead>
 
   <tbody>
     <% @garments.each do |garment| %>
       <tr>
+        <td><%= garment.name %></td>
+        <td><%= garment.image %></td>
+        <td><%= garment.category %></td>
         <td><%= link_to 'Show', garment %></td>
         <td><%= link_to 'Edit', edit_garment_path(garment) %></td>
         <td><%= link_to 'Destroy', garment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
