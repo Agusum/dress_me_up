@@ -19,16 +19,16 @@ class Garment < ActiveRecord::Base
 	CATEGORY = ['Shoes', 'Pants', 'Shirt'].sort
 
 	def get_outfit(garments)
-		outfit = []
+		outfit = {}
 		garments.each do |garment|
 			if garment[:category] == 'Shoes' 
-				outfit[0] = garment[:name]
+				outfit[:shoes] = garment[:name]
 			end
 			if garment[:category] == 'Pants' 
-				outfit[1] = garment[:name]
+				outfit[:pants] = garment[:name]
 			end
 			if garment[:category] == 'Shirt' 
-				outfit[2] = garment[:name]
+				outfit[:shirt] = garment[:name]
 			end
 		end
 		return outfit

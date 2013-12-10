@@ -4,9 +4,10 @@
 <%= image_tag(@garment.image) %>
 
 <h1>Outfit</h1>
-<p><%= @outfit[0] %></p>
-<p><%= @outfit[1] %></p>
-<p><%= @outfit[2] %></p>
+<p><%= 'Shoes: '%><%= @outfit[:shoes] %></p>
+<p><%= 'Pants: '%><%= @outfit[:pants] %></p>
+<p><%= 'Shirt: '%><%= @outfit[:shirt] %></p>
+
 
 <%= link_to 'Edit', edit_garment_path(@garment) %> |
 <%= link_to 'Back', garments_path %>
