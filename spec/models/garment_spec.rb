@@ -1,5 +1,54 @@
 require 'spec_helper'
 
 describe Garment do
-  pending "add some examples to (or delete) #{__FILE__}"
+	describe "with valid attributes" do
+    it "should be valid" do
+    	garment_ok = Garment.new
+			garment_ok[:name] = 'Jersey Negro'
+			garment_ok[:category] = 'Shirt'
+      expect(garment_ok).to be_valid
+    end
+  end
+
+  describe "is invalid" do
+  	before(:each) do
+	    @garment_full = Garment.new
+			@garment_full[:name] = 'Jersey Negro'
+			@garment_full[:category] = 'Shirt'
+	  end
+
+	  it "without a name using build" do
+      expect(build(:garment, name: nil)).to_not be_valid
+    end
+
+    it "without a name" do
+		  @garment_full[:name] = nil
+      expect(@garment_full).to_not be_valid
+    end
+
+    it "without a category" do
+    	@garment_full[:category] = nil
+      expect(@garment_full).to_not be_valid
+    end
+  end
+	describe 'having a set of garments' do
+	  garment_jersey = Garment.new
+	  garment_jersey[:name] = 'Jersey Negro'
+	  garment_jersey[:category] = 'Shirt'
+	  garment_pants = Garment.new
+	  garment_pants[:name] = 'Vaqueros'
+	  garment_pants[:category] = 'Pants'
+	  garment_shoes = Garment.new
+	  garment_shoes[:name] = 'Zapatos'
+	  garment_shoes[:category] = 'Shoes'
+	  garments = []
+	  garments << garment_jersey
+	  garments << garment_pants
+	  garments << garment_shoes
+
+	  it "should create a random outfit" do
+	  	outfit = garment_jersey.get_outfit(garments)
+	    expect(outfit[0]).to eq('Zapatos')
+	  end
+	end
 end
