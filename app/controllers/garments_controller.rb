@@ -10,6 +10,8 @@ class GarmentsController < ApplicationController
   # GET /garments/1
   # GET /garments/1.json
   def show
+    @garments = Garment.all
+    @outfit = @garment.get_outfit(@garments)
   end
 
   # GET /garments/new
@@ -69,6 +71,6 @@ class GarmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garment_params
-      params.require(:garment).permit(:name, :category, :image) 
+      params.require(:garment).permit(:name, :image, :category) 
     end
 end
