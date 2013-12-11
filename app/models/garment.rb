@@ -18,17 +18,23 @@ class Garment < ActiveRecord::Base
 
 	CATEGORY = ['Shoes', 'Pants', 'Shirt'].sort
 
-	def get_outfit(garments)
-		outfit = {} #Values are garment objects.
+	def get_outfit(garments) #garments is an array of garment objects
+		outfit = {} #outfit is an object which keys are the clothes category and which values are garment objects.
 		garments.shuffle!
 
 		garments.each do |garment|
 			if garment[:category] == 'Shoes' && outfit[:shoes] == nil
-				outfit[:shoes] = garment
+				if !check_bad_combination(outfit, garment)
+					outfit[:shoes] = garment
+				end
 			elsif garment[:category] == 'Pants' && outfit[:pants] == nil
-				outfit[:pants] = garment 
+				if !check_bad_combination(outfit, garment)
+					outfit[:pants] = garment
+				end
 			elsif garment[:category] == 'Shirt' && outfit[:shirt] == nil 
-				outfit[:shirt] = garment
+				if !check_bad_combination(outfit, garment)
+					outfit[:shirt] = garment
+				end
 			end
 
 			if outfit.length == 3
@@ -36,32 +42,12 @@ class Garment < ActiveRecord::Base
 			end
 		end
 
-		# garment.bad_combinations.each do |bad|
-		# 			if bad[:name] == outfit[:pants] || bad[:name] == outfit[:shirt]
-		# 				cont = 1
-		# 			end
-
-		# 			if cont == 0
-		# 				outfit[:shoes] = garment[:name]
-		# 			end
-		# 		end
-
-		# while outfit.length < 3
-		# 	garment = garments.sample
-		# 	if outfit[:shirt] == nil && garment[:category] == 'Shirt'
-		# 		outfit[:shirt] = garment[:name]
-		# 	elsif outfit[:pants] == nil && garment[:category] == 'Pants'
-		# 		outfit[:pants] = garment[:name]
-		# 	elsif outfit[:shoes] == nil && garment[:category] == 'Shoes'
-		# 		outfit[:shoes] = garment[:name]
-		# 	end
-		# end
 		return outfit
 	end
 
 	def check_bad_combination(outfit, garment)
 		garment.bad_combinations.each do |bad|
-			outfit.each do |outfit_garment|
+			outfit.each do |key, outfit_garment|
 				if bad[:name] == outfit_garment[:name]
 					return true
 				end
