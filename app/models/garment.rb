@@ -59,8 +59,16 @@ class Garment < ActiveRecord::Base
 		return outfit
 	end
 
-	def check_bad_combination(garment1, garment2)
+	def check_bad_combination(outfit, garment)
+		garment.bad_combinations.each do |bad|
+			outfit.each do |outfit_garment|
+				if bad[:name] == outfit_garment[:name]
+					return true
+				end
+			end
+		end
 
+		return false
 	end
 
 end

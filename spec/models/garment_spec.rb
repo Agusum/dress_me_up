@@ -75,7 +75,16 @@ describe Garment do
 	    expect(outfit[:shirt][:name]).to eq('Jersey Negro')
 	  end
 
-	  it "should not include bad combinations in the outfit" do 
+	  it "detects a bad combination" do
+	  	@garment_no_match = Garment.new
+	  	@garment_no_match[:name] = 'Jersey Rojo'
+		  @garment_no_match[:category] = 'Shirt'
+		  @garment_no_match.bad_combinations << @garment_pants
+
+		  expect(@garment_jersey.check_bad_combination(@garments, @garment_no_match)).to eq(true)
+	  end
+
+	  xit "should not include bad combinations in the outfit" do 
 	  	@garment_no_match = Garment.new
 	  	@garment_no_match[:name] = 'Jersey Rojo'
 		  @garment_no_match[:category] = 'Shirt'
