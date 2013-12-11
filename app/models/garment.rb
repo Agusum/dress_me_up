@@ -20,17 +20,44 @@ class Garment < ActiveRecord::Base
 
 	def get_outfit(garments)
 		outfit = {}
+		garments.shuffle!
+
 		garments.each do |garment|
-			if garment[:category] == 'Shoes' 
+			if garment[:category] == 'Shoes' && outfit[:shoes] == nil
 				outfit[:shoes] = garment[:name]
-			end
-			if garment[:category] == 'Pants' 
+			elsif garment[:category] == 'Pants' && outfit[:pants] == nil 
 				outfit[:pants] = garment[:name]
-			end
-			if garment[:category] == 'Shirt' 
+			elsif garment[:category] == 'Shirt' && outfit[:shirt] == nil 
 				outfit[:shirt] = garment[:name]
 			end
+
+			if outfit.length == 3
+				break
+			end
 		end
+
+		# while outfit.length < 3
+		# 	garment = garments.sample
+		# 	if outfit[:shirt] == nil && garment[:category] == 'Shirt'
+		# 		outfit[:shirt] = garment[:name]
+		# 	elsif outfit[:pants] == nil && garment[:category] == 'Pants'
+		# 		outfit[:pants] = garment[:name]
+		# 	elsif outfit[:shoes] == nil && garment[:category] == 'Shoes'
+		# 		outfit[:shoes] = garment[:name]
+		# 	end
+		# end
+
+		# garments.each do |garment|
+		# 	if garment[:category] == 'Shoes' 
+		# 		outfit[:shoes] = garment[:name]
+		# 	end
+		# 	if garment[:category] == 'Pants' 
+		# 		outfit[:pants] = garment[:name]
+		# 	end
+		# 	if garment[:category] == 'Shirt' 
+		# 		outfit[:shirt] = garment[:name]
+		# 	end
+		# end
 		return outfit
 	end
 end

@@ -32,7 +32,26 @@ describe Garment do
     end
   end
 
-	describe 'having a set of garments' do
+  describe 'having an incomplete set of garments' do
+  	it "should create a random outfit" do
+  		@garment_jersey = Garment.new
+		  @garment_jersey[:name] = 'Jersey Negro'
+		  @garment_jersey[:category] = 'Shirt'
+		  @garment_pants = Garment.new
+		  @garment_pants[:name] = 'Vaqueros'
+		  @garment_pants[:category] = 'Pants'
+		  @garments = []
+		  @garments << @garment_jersey
+		  @garments << @garment_pants
+
+	  	outfit = @garment_jersey.get_outfit(@garments)
+	    expect(outfit[:shoes]).to eq(nil)
+	    expect(outfit[:pants]).to eq('Vaqueros')
+	    expect(outfit[:shirt]).to eq('Jersey Negro')
+	  end
+  end
+
+	describe 'having a complete set of garments' do
 		before(:each) do
 			@garment_jersey = Garment.new
 		  @garment_jersey[:name] = 'Jersey Negro'
@@ -52,15 +71,18 @@ describe Garment do
 	  it "should create a random outfit" do
 	  	outfit = @garment_jersey.get_outfit(@garments)
 	    expect(outfit[:shoes]).to eq('Zapatos')
+	    expect(outfit[:pants]).to eq('Vaqueros')
+	    expect(outfit[:shirt]).to eq('Jersey Negro')
 	  end
 
-	  xit "should not include bad combinations in the outfit" do 
+	  it "should not include bad combinations in the outfit" do 
 	  	@garment_no_match = Garment.new
 	  	@garment_no_match[:name] = 'Jersey Rojo'
 		  @garment_no_match[:category] = 'Shirt'
+		  @garment_no_match.bad_combinations << @garment_pants
 		  @garments << @garment_no_match
 		  outfit = @garment_jersey.get_outfit(@garments)
-	    expect(outfit[2]).to eq('Jersey Negro')
+	    expect(outfit[:shirt]).to eq('Jersey Negro')
 	  end
 	end
 end
