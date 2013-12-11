@@ -1,12 +1,17 @@
-<p><%= @garment.name %></p>
+<h1><%= @garment.name %></h1>
 
 <strong>Image:</strong>
 <%= image_tag(@garment.image) %>
 
+<p><%= 'Bad combinations:' %></p>
+<% @garment.bad_combinations.each do |garment| %>
+<p><%= garment.name %></p>
+<% end %>
+
 <h1>Outfit</h1>
-<p><%= 'Shoes: '%><%= @outfit[:shoes][:name] %></p>
-<p><%= 'Pants: '%><%= @outfit[:pants][:name] %></p>
-<p><%= 'Shirt: '%><%= @outfit[:shirt][:name] %></p>
+<p><%= 'Shoes: ' %><%= @outfit[:shoes][:name] %></p>
+<p><%= 'Pants: ' %><%= @outfit[:pants][:name] %></p>
+<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
 
 
 <%= link_to 'Edit', edit_garment_path(@garment) %> |

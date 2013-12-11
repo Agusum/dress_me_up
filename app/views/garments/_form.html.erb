@@ -3,5 +3,7 @@
 	<%= f.file_field :image %>
 	<%= f.input :category, collection: Garment::CATEGORY, as: :select %>
 
+	<%= f.input :bad_combinations, collection: Garment.all, as: :check_boxes%>
+
   <%= f.submit %>
 <% end %>
