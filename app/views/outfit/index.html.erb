@@ -12,9 +12,9 @@
 	<div class="navbar-inverse " role="navigation">
 	  <div class="center">
 	    <div class="no-float">
-	    	<a class="navbar-brand" href="#">Wardrobe</a>
-	      <h3 class="navbar-brand no-margin" href="#">Dress Me Up!</h3>
-	      <a class="navbar-brand" href="#">+++</a>
+	    	<%= link_to 'Wardrobe', garments_path, {class: "navbar-brand"} %>
+	      <p class="navbar-brand no-margin">Dress Me Up!</p>
+	      <%= link_to '+++', new_garment_path, {class: "navbar-brand"} %>
 	    </div>
 	  </div>
 	</div>
@@ -25,7 +25,7 @@
 		<p><%= 'Pants: ' %><%= @outfit[:pants][:name] %></p>
 		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
 
-		<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit!</button></a>
+		<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit</button></a>
  	</div>
 	
 </body>
