@@ -1,19 +1,32 @@
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dress Me Up!</title>
 
-<div class="navbar-inverse " role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-    	<a class="navbar-brand" href="#">Wardrobe</a>
-      <h3 class="navbar-brand no-margin" href="#">Dress Me Up!</h3>
-      <a class="navbar-brand" href="#">+++</a>
-    </div>
-  </div>
-</div>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</head>
 
-<h1>Today's Outfit</h1>
-<p><%= 'Shoes: ' %><%= @outfit[:shoes][:name] %></p>
-<p><%= 'Pants: ' %><%= @outfit[:pants][:name] %></p>
-<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
+<body>
 
-<a href="#"><button type="button" class="btn btn-default btn-lg">Random Outfit!</button></a>
+	<div class="navbar-inverse " role="navigation">
+	  <div class="center">
+	    <div class="no-float">
+	    	<a class="navbar-brand" href="#">Wardrobe</a>
+	      <h3 class="navbar-brand no-margin" href="#">Dress Me Up!</h3>
+	      <a class="navbar-brand" href="#">+++</a>
+	    </div>
+	  </div>
+	</div>
+
+ 	<div class="center">
+ 		<h1>Today's Outfit</h1>
+		<p><%= 'Shoes: ' %><%= @outfit[:shoes][:name] %></p>
+		<p><%= 'Pants: ' %><%= @outfit[:pants][:name] %></p>
+		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
+
+		<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit!</button></a>
+ 	</div>
+	
+</body>
+</html>

@@ -12,6 +12,20 @@
  *= require_tree .
  */
 
- .no-margin {
- 	margin: 0;
- }
+.no-margin {
+	margin: 0;
+}
+
+.center {
+ 	text-align: center;
+}
+
+.nav {
+	background-color: #222;
+	color: red;
+}
+
+.no-float {
+	display: inline-block;
+	float: none;
+}
