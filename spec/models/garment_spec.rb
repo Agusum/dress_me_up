@@ -80,7 +80,11 @@ describe Garment do
 		  @garments << garment_no_match
 
 		  outfit = garment_shirt.get_outfit(@garments)
-	    expect(outfit[:shirt][:name]).to eq('Camiseta Negra')
+		  outfit[:shirt] = garment_no_match
+		  expect(outfit[:shoes][:name]).to eq('Zapatos')
+	    expect(outfit[:pants][:name]).to eq(nil)
+	    expect(outfit[:shirt][:name]).to eq('Camiseta Roja')
+
 	  end
 	end
 end
