@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :garment do
+  	name "Camiseta Blanca"
+  	category "Shirt"
   end
 end
