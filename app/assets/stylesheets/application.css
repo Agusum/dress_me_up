@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+li { 
+	list-style-type: none;
+}
+
 .no-margin {
 	margin: 0;
 }
@@ -21,11 +25,31 @@
 }
 
 .nav {
-	background-color: #222;
-	color: red;
+	height: 54px;
 }
 
 .no-float {
 	display: inline-block;
 	float: none;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.plus {
+
+	font-family: 'Glyphicons Halflings';
+}
+
+.left {
+	float: left;
+}
+
+.title {
+	margin-top: -8px;
+}
+
+.navbar-brand {
+	color: #FFFFFF;
 }

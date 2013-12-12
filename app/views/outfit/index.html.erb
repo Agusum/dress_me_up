@@ -9,12 +9,14 @@
 
 <body>
 
-	<div class="navbar-inverse " role="navigation">
+	<div class="navbar-inverse nav" role="navigation">
 	  <div class="center">
 	    <div class="no-float">
-	    	<%= link_to 'Wardrobe', garments_path, {class: "navbar-brand"} %>
-	      <p class="navbar-brand no-margin">Dress Me Up!</p>
-	      <%= link_to '+++', new_garment_path, {class: "navbar-brand"} %>
+		    <ul class="btn-group btn-lg">
+	        <li class="inline left"><%= link_to "", garments_path, class: "btn btn-primary glyphicon-list plus"%></li>
+	        <li class="navbar-brand inline title">Dress Me Up!</li>
+	        <li class="inline"><%= link_to "", new_garment_path, class: "btn btn-primary glyphicon-plus plus"%></li>
+	      </ul>
 	    </div>
 	  </div>
 	</div>
@@ -30,6 +32,6 @@
 		<p></p>
 		<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit</button></a>
  	</div>
-	
+	<p></p>
 </body>
 </html>
