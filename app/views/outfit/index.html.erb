@@ -21,10 +21,13 @@
 
  	<div class="center">
  		<h1>Today's Outfit</h1>
-		<p><%= 'Shoes: ' %><%= @outfit[:shoes][:name] %></p>
+ 		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
+		<%= image_tag("/uploads/garment/image/#{@outfit[:shirt][:id]}/#{@outfit[:shirt][:image]}") %>
 		<p><%= 'Pants: ' %><%= @outfit[:pants][:name] %></p>
-		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
-
+		<%= image_tag("/uploads/garment/image/#{@outfit[:pants][:id]}/#{@outfit[:pants][:image]}") %>
+		<p><%= 'Shoes: ' %><%= @outfit[:shoes][:name] %></p>
+		<%= image_tag("/uploads/garment/image/#{@outfit[:shoes][:id]}/#{@outfit[:shoes][:image]}") %>
+		<p></p>
 		<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit</button></a>
  	</div>
 	
