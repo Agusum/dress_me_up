@@ -34,9 +34,7 @@ describe Garment do
 
   describe 'having an incomplete set of garments' do
   	it "should create a random outfit" do
-  		@garment_shirt = Garment.new
-		  @garment_shirt[:name] = 'Camiseta Negra'
-		  @garment_shirt[:category] = 'Shirt'
+  		@garment_shirt = Garment.new(name: 'Camiseta Negra', category: 'Shirt')
 		  @garment_pants = Garment.new
 		  @garment_pants[:name] = 'Vaqueros'
 		  @garment_pants[:category] = 'Pants'
@@ -52,10 +50,8 @@ describe Garment do
   end
 
 	describe 'having a complete set of garments' do
+		let(:garment_shirt) {Garment.new(name: 'Camiseta Negra', category: 'shirt')}
 		before(:each) do
-			@garment_shirt = Garment.new
-		  @garment_shirt[:name] = 'Camiseta Negra'
-		  @garment_shirt[:category] = 'Shirt'
 		  @garment_pants = Garment.new
 		  @garment_pants[:name] = 'Vaqueros'
 		  @garment_pants[:category] = 'Pants'

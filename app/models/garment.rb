@@ -2,6 +2,7 @@ class Garment < ActiveRecord::Base
 	mount_uploader :image, ImageUploader
 
 	validates_presence_of :name
+	#validates_presence_of :image
 	validates_presence_of :category
 
 	has_and_belongs_to_many :good_combinations,

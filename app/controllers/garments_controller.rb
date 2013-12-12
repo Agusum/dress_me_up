@@ -71,6 +71,6 @@ class GarmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def garment_params
-      params.require(:garment).permit(:name, :image, :category) 
+      params.require(:garment).permit(:name, :image, :category, {bad_combination_ids: []})
     end
 end
