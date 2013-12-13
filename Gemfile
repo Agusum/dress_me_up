@@ -55,3 +55,4 @@ gem "simple_form"
 gem "teaspoon", group: [:development, :test]
 
 gem 'carrierwave'
+gem 'rails_12factor'
