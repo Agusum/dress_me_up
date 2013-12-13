@@ -13,7 +13,8 @@
 		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
 		<%= image_tag("/uploads/garment/image/#{@outfit[:shirt][:id]}/#{@outfit[:shirt][:image]}") %>
 	<% end %>
-	<% if @outfit[:shirt] == nil %>
+	<% if @outfit[:pants] == nil %>
+		<p><%= image_tag("pants-placeholder.jpg") %></p>
 		<p>Pants: You have no pants that match the rest of the outfit</p>
 		<p><%= link_to 'Create new pants', new_garment_path %></p>
 	<% else %>
