@@ -11,7 +11,10 @@ class GarmentsController < ApplicationController
   # GET /garments/1.json
   def show
     @garments = Garment.all
-    @outfit = @garment.get_outfit(@garments)
+    @initial_outfit = {}
+    garment_category = @garment[:category]
+    @initial_outfit[:garment_category] = @garment
+    @outfit = @garment.get_outfit(@initial_outfit, @garments)
   end
 
   # GET /garments/new
@@ -30,6 +33,7 @@ class GarmentsController < ApplicationController
 
     respond_to do |format|
       if @garment.save
+        #########
         format.html { redirect_to @garment, notice: 'Garment was successfully created.' }
         format.json { render action: 'show', status: :created, location: @garment }
       else

@@ -5,6 +5,7 @@ describe Garment do
 	let(:garment_pants) { Garment.new(name: 'Vaqueros', category: 'Pants') }
 	let(:garment_shoes) { Garment.new(name: 'Zapatos', category: 'Shoes') }
 	let(:garment_no_match) { Garment.new(name: 'Camiseta Roja', category: 'Shirt') }
+	#let(:outfit) { {} }
 
 	describe "with valid attributes" do
     it "should be valid" do
@@ -34,7 +35,8 @@ describe Garment do
 		  garments << garment_shirt
 		  garments << garment_pants
 
-	  	outfit = garment_shirt.get_outfit(garments)
+		  initial_outfit = {}
+	  	outfit = garment_shirt.get_outfit(initial_outfit, garments)
 	    expect(outfit[:shoes]).to eq(nil)
 	    expect(outfit[:pants][:name]).to eq('Vaqueros')
 	    expect(outfit[:shirt][:name]).to eq('Camiseta Negra')
@@ -49,12 +51,13 @@ describe Garment do
 		  @garments << garment_pants
 		  @garments << garment_shoes
 
-		  garment_no_match.bad_combinations << garment_pants
-		  garment_pants.bad_combinations << garment_no_match
+		  garment_no_match.bad_combinations << garment_shoes
+		  #garment_shoes.bad_combinations << garment_no_match
 	  end
 
 	  it "should create a random outfit" do
-	  	outfit = garment_shirt.get_outfit(@garments)
+	  	initial_outfit = {}
+	  	outfit = garment_shirt.get_outfit(initial_outfit, @garments)
 	    expect(outfit[:shoes][:name]).to eq('Zapatos')
 	    expect(outfit[:pants][:name]).to eq('Vaqueros')
 	    expect(outfit[:shirt][:name]).to eq('Camiseta Negra')
@@ -79,12 +82,13 @@ describe Garment do
 	  it "should not include bad combinations in the outfit" do 
 		  @garments << garment_no_match
 
-		  outfit = garment_shirt.get_outfit(@garments)
-		  outfit[:shirt] = garment_no_match
-		  expect(outfit[:shoes][:name]).to eq('Zapatos')
-	    expect(outfit[:pants][:name]).to eq(nil)
+		  initial_outfit = {}
+		  initial_outfit[:shirt] = garment_no_match
+		  outfit = garment_shirt.get_outfit(initial_outfit, @garments)
+		  
+		  expect(outfit[:shoes]).to eq(nil)
+	    expect(outfit[:pants][:name]).to eq('Vaqueros')
 	    expect(outfit[:shirt][:name]).to eq('Camiseta Roja')
-
 	  end
 	end
 end
