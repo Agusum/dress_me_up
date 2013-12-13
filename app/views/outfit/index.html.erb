@@ -8,19 +8,20 @@
 </head>
 
 <body>
-
-	<div class="navbar-inverse nav" role="navigation">
-	  <div class="center">
-	    <div class="no-float">
-		    <ul class="btn-group btn-lg">
-	        <li class="inline left"><%= link_to "", garments_path, class: "btn btn-primary glyphicon-list plus"%></li>
-	        <li class="navbar-brand inline title">Dress Me Up!</li>
-	        <li class="inline"><%= link_to "", new_garment_path, class: "btn btn-primary glyphicon-plus plus"%></li>
-	      </ul>
-	    </div>
-	  </div>
-	</div>
-
+	<header>
+		<div class="navbar-inverse nav" role="navigation">
+		  <div class="center">
+		    <div class="no-float">
+			    <ul class="btn-group btn-lg">
+		        <li class="inline left"><%= link_to "", garments_path, class: "btn btn-primary glyphicon-list plus"%></li>
+		        <%= link_to 'Dress Me Up!', root_path, class: "navbar-brand inline title" %>
+		        <li class="inline"><%= link_to "", new_garment_path, class: "btn btn-primary glyphicon-plus plus"%></li>
+		      </ul>
+		    </div>
+		  </div>
+		</div>
+	</header>
+	
  	<div class="center">
  		<h1>Today's Outfit</h1>
  		<p><%= 'Shirt: ' %><%= @outfit[:shirt][:name] %></p>
