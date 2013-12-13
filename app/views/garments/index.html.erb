@@ -18,6 +18,7 @@
     <% @garments.each do |garment| %>
       <tr>
         <td><%= garment.name %></td>
+        <td><%= image_tag(garment.image) %></td>
         
         <td><%= garment.category %></td>
         <td><%= link_to 'Show', garment %></td>
