@@ -1,0 +1,22 @@
+<div class="form">
+<%= simple_form_for(@garment) do |f| %>
+	<%= f.input :name %>
+	<%= f.file_field :image %>
+	<%= f.input :category, collection: Garment::CATEGORY, as: :select %>
+	
+	<% if @garment.category == 'Shirt' %>
+		<%= f.input :bad_combination_ids, collection: @garments_pants, as: :check_boxes%>
+		<%= f.input :bad_combination_ids, collection: @garments_shoes, as: :check_boxes%>
+	<% end %>
+	<% if @garment.category == 'Pants' %>
+		<%= f.input :bad_combination_ids, collection: @garments_shirts, as: :check_boxes%>
+		<%= f.input :bad_combination_ids, collection: @garments_shoes, as: :check_boxes%>
+	<% end %>
+	<% if @garment.category == 'Shoes' %>
+		<%= f.input :bad_combination_ids, collection: @garments_shirts, as: :check_boxes%>
+		<%= f.input :bad_combination_ids, collection: @garments_pants, as: :check_boxes%>
+	<% end %>
+
+  <%= f.submit %>
+<% end %>
+</div>

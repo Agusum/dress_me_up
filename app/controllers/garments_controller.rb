@@ -20,10 +20,18 @@ class GarmentsController < ApplicationController
   # GET /garments/new
   def new
     @garment = Garment.new
+    @garments = Garment.all
+    @garments_shirts = @garment.get_garments(@garments, "Shirt")
+    @garments_pants = @garment.get_garments(@garments, "Pants")
+    @garments_shoes = @garment.get_garments(@garments, "Shoes")
   end
 
   # GET /garments/1/edit
   def edit
+    @garments = Garment.all
+    @garments_shirts = @garment.get_garments(@garments, "Shirt")
+    @garments_pants = @garment.get_garments(@garments, "Pants")
+    @garments_shoes = @garment.get_garments(@garments, "Shoes")
   end
 
   # POST /garments
