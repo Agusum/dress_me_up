@@ -20,10 +20,6 @@ class GarmentsController < ApplicationController
   # GET /garments/new
   def new
     @garment = Garment.new
-    @garments = Garment.all
-    @garments_shirts = @garment.get_garments(@garments, "Shirt")
-    @garments_pants = @garment.get_garments(@garments, "Pants")
-    @garments_shoes = @garment.get_garments(@garments, "Shoes")
   end
 
   # GET /garments/1/edit
@@ -38,6 +34,11 @@ class GarmentsController < ApplicationController
   # POST /garments.json
   def create
     @garment = Garment.new(garment_params)
+
+    # @garment.bad_combinations.each do |bad|
+    #   bad.bad_combinations << @garment
+    #   bad.update
+    # end
 
     respond_to do |format|
       if @garment.save
