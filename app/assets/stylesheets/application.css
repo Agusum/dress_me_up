@@ -53,3 +53,12 @@ li {
 .navbar-brand {
 	color: #FFFFFF;
 }
+
+.img-container {
+	width: 200px;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
