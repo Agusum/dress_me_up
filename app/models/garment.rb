@@ -70,4 +70,15 @@ class Garment < ActiveRecord::Base
 		return false
 	end
 
+	def get_garments(garments, garment_category)
+		garment_set = []
+		garments.each do |garment|
+			if garment.category == garment_category
+				garment_set << garment
+			end
+		end
+
+		garment_set
+	end
+
 end

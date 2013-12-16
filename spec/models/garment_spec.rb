@@ -90,5 +90,15 @@ describe Garment do
 	    expect(outfit[:pants][:name]).to eq('Vaqueros')
 	    expect(outfit[:shirt][:name]).to eq('Camiseta Roja')
 	  end
+
+	  it "should gather all the garments from the specified category" do
+	  	@garments << garment_no_match
+	  	garments_shirts = []
+	  	garments_shirts = garment_shirt.get_garments(@garments, "Shirt")
+
+	  	expect(garments_shirts[0][:name]).to eq("Camiseta Negra")
+	  	expect(garments_shirts[1][:name]).to eq("Camiseta Roja")
+	  	expect(garments_shirts[2]).to eq(nil)
+	  end
 	end
 end
