@@ -3,9 +3,10 @@
 
 <%= render partial: 'header' %>
 
-<h1>Listing garments</h1>
+<h1 class="center">Wardrobe</h1>
 
-<table>
+<div class="table-garments">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Garment</th>
@@ -28,7 +29,8 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
-
+<div class="center">
 <%= link_to 'New Garment', new_garment_path %>
+</div>

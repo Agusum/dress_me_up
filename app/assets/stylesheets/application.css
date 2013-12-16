@@ -20,6 +20,10 @@ li {
 	margin: 0;
 }
 
+.margin-top {
+	margin-top: 60px;
+}
+
 .center {
  	text-align: center;
 }
@@ -54,11 +58,18 @@ li {
 	color: #FFFFFF;
 }
 
-.img-container {
+img {
 	width: 200px;
 }
 
-.img-container img {
-    width: 100%;
-    height: auto;
+.table-garments {
+	width: 550px;
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+.form {
+	width: 400px;
+	margin-left:auto; 
+    margin-right:auto;
 }
