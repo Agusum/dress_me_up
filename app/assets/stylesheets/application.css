@@ -79,3 +79,51 @@ img {
 	margin-left:auto; 
     margin-right:auto;
 }
+
+.left-arrow {
+	float: left;
+	margin-top: 100px;
+}
+
+.rigth-arrow {
+	float: right;
+	margin-top: 100px;
+}
+
+.garment {
+	
+}
+/*
+.cont {
+	width: 300px;
+	margin-left:auto; 
+    margin-right:auto;
+}*/
+
+.cont {
+  width: 400px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.cont:before,
+.cont:after {
+  display: table;
+  content: " ";
+}
+
+.cont:after {
+  clear: both;
+}
+
+.cont:before,
+.cont:after {
+  display: table;
+  content: " ";
+}
+
+.cont:after {
+  clear: both;
+}
