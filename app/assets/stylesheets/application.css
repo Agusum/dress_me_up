@@ -82,23 +82,19 @@ img {
 
 .left-arrow {
 	float: left;
-	margin-top: 100px;
+	margin-top: 94px;
+	margin-bottom: auto;
 }
 
 .rigth-arrow {
 	float: right;
-	margin-top: 100px;
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 .garment {
 	
 }
-/*
-.cont {
-	width: 300px;
-	margin-left:auto; 
-    margin-right:auto;
-}*/
 
 .cont {
   width: 400px;
@@ -108,22 +104,29 @@ img {
   margin-left: auto;
 }
 
-.cont:before,
-.cont:after {
-  display: table;
-  content: " ";
+	.cont:before,
+	.cont:after {
+	  display: table;
+	  content: " ";
+	}
+
+	.cont:after {
+	  clear: both;
+	}
+
+.btn-wardrobe {
+	padding: 8px 5px;
+	font-size: 18px;
+	line-height: 1.33;
+	border-radius: 6px;
 }
 
-.cont:after {
-  clear: both;
+.slim-row {
+	width: 34px;
 }
 
-.cont:before,
-.cont:after {
-  display: table;
-  content: " ";
-}
-
-.cont:after {
-  clear: both;
+/*Adjust margins when having a definite height of images*/
+.vertical-center{
+	margin-top: auto;
+	margin-bottom: auto;
 }

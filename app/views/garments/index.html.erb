@@ -5,13 +5,13 @@
 
 <h1 class="center">Wardrobe</h1>
 
-<div class="table-garments">
+<div class="table-garments center">
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Garment</th>
-      <th>Image</th>
-      <th>Category</th>
+      <th class="center">Garment</th>
+      <th class="center">Image</th>
+      <th class="center">Category</th>
     </tr>
   </thead>
 
@@ -22,9 +22,21 @@
         <td><%= image_tag(garment.image) %></td>
         
         <td><%= garment.category %></td>
-        <td><%= link_to 'Show', garment %></td>
-        <td><%= link_to 'Edit', edit_garment_path(garment) %></td>
-        <td><%= link_to 'Destroy', garment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="slim-row">
+          <div class="vertical-center">
+          <ul class="btn-group btn-wardrobe">
+            <li class="inline left"><%= link_to "", garment, class: "btn btn-info glyphicon-eye-open plus"%></li>
+          </ul>
+        
+          <ul class="btn-group btn-wardrobe">
+            <li class="inline left"><%= link_to "", edit_garment_path(garment), class: "btn btn-primary glyphicon-pencil plus"%></li>
+          </ul>
+        
+          <ul class="btn-group btn-wardrobe">
+            <li class="inline left"><%= link_to "", garment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger glyphicon-trash plus"%></li>
+          </ul>
+          </div>
+        </td>
       </tr>
     <% end %>
   </tbody>
