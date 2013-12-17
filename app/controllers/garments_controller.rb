@@ -35,10 +35,10 @@ class GarmentsController < ApplicationController
   def create
     @garment = Garment.new(garment_params)
 
-    # @garment.bad_combinations.each do |bad|
-    #   bad.bad_combinations << @garment
-    #   bad.update
-    # end
+    @garment.bad_combinations.each do |bad|
+      bad.bad_combinations << @garment
+      bad.save!
+    end
 
     respond_to do |format|
       if @garment.save
@@ -54,6 +54,10 @@ class GarmentsController < ApplicationController
   # PATCH/PUT /garments/1
   # PATCH/PUT /garments/1.json
   def update
+    @garment.bad_combinations.each do |bad|
+      bad.bad_combinations << @garment
+      bad.save!
+    end
     respond_to do |format|
       if @garment.update(garment_params)
         format.html { redirect_to @garment, notice: 'Garment was successfully updated.' }
