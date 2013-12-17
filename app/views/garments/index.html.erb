@@ -1,6 +1,3 @@
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
 <%= render partial: 'header' %>
 
 <h1 class="center">Wardrobe</h1>
@@ -18,10 +15,10 @@
   <tbody>
     <% @garments.each do |garment| %>
       <tr>
-        <td><%= garment.name %></td>
-        <td><%= image_tag(garment.image) %></td>
+        <td class="slim-name"><%= garment.name %></td>
+        <td class="slim-image"><%= image_tag(garment.image) %></td>
         
-        <td><%= garment.category %></td>
+        <td class="slim-category"><%= garment.category %></td>
         <td class="slim-row">
           <div class="vertical-center">
           <ul class="btn-group btn-wardrobe">
