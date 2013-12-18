@@ -81,13 +81,7 @@ img {
     margin-right:auto;
 }
 
-.left-arrow {
-	float: left;
-	margin-top: 94px;
-	margin-bottom: auto;
-}
-
-.rigth-arrow {
+.right-icons {
 	float: right;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -126,7 +120,7 @@ img {
 	width: 34px;
 }
 
-/*
+
 .slim-category {
 	width: 34px;
 }
@@ -138,7 +132,7 @@ img {
 .slim-name {
 	width: 34px;
 }
-*/
+
 /*Adjust margins when having a definite height of images*/
 .vertical-center {
 	margin-top: auto;
