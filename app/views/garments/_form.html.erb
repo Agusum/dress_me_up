@@ -1,11 +1,12 @@
 <div class="form">
 <%= simple_form_for(@garment) do |f| %>
-	<%= f.input :name %>
-	<%= f.file_field :image %>
-	<%= f.input :category, collection: Garment::CATEGORY, as: :select %>
+	<%= f.input :name %><br>
+	<%= f.file_field :image %><br>
+	<%= f.input :category, collection: Garment::CATEGORY, as: :select %><br>
 
-	<%= f.input :bad_combination_ids, collection: Garment.all, as: :check_boxes%>
-
-  <%= f.submit %>
+	<!--<%= f.input :bad_combination_ids, collection: Garment.all, as: :check_boxes%>-->
+	<div class="center">
+  	<%= f.submit 'Save', class: 'btn btn-primary btn-lg' %>
+  </div>
 <% end %>
 </div>

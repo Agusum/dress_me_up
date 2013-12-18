@@ -42,8 +42,7 @@ li {
 	display: inline-block;
 }
 
-.plus {
-
+.glyph {
 	font-family: 'Glyphicons Halflings';
 }
 
@@ -85,10 +84,6 @@ img {
 	float: right;
 	margin-top: auto;
 	margin-bottom: auto;
-}
-
-.garment {
-	
 }
 
 .cont {

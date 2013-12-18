@@ -1,22 +1,48 @@
 <div class="form">
-<%= simple_form_for(@garment) do |f| %>
-	<%= f.input :name %>
-	<%= f.file_field :image %>
-	<%= f.input :category, collection: Garment::CATEGORY, as: :select %>
-	
-	<% if @garment.category == 'Shirt' %>
-		<%= f.input :bad_combination_ids, collection: @garments_pants, as: :check_boxes%>
-		<%= f.input :bad_combination_ids, collection: @garments_shoes, as: :check_boxes%>
-	<% end %>
-	<% if @garment.category == 'Pants' %>
-		<%= f.input :bad_combination_ids, collection: @garments_shirts, as: :check_boxes%>
-		<%= f.input :bad_combination_ids, collection: @garments_shoes, as: :check_boxes%>
-	<% end %>
-	<% if @garment.category == 'Shoes' %>
-		<%= f.input :bad_combination_ids, collection: @garments_shirts, as: :check_boxes%>
-		<%= f.input :bad_combination_ids, collection: @garments_pants, as: :check_boxes%>
-	<% end %>
+	<%= form_for(@garment) do |f| %>
+		<div class="field">
+	    <%= f.label :name %><br>
+	    <%= f.text_field :name, class: 'form-control' %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :image %><br>
+	    <%= f.file_field :image, class: 'form-control' %>
+	  </div>
+	  <div class="field">
+	    <%= f.label :category %><br>
+	    <%= f.select :category, Garment::CATEGORY %>
+	  </div>
 
-  <%= f.submit 'Save' %>
-<% end %>
+	  <% if @garment.category == 'Shirt' %>
+		  <div class="field">
+		    <%= f.label 'Not matching pants:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_pants, :id, :name %><br>
+		    <%= f.label 'Not matching shoes:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_shoes, :id, :name %>
+		  </div>
+
+		<% end %>
+		<% if @garment.category == 'Pants' %>
+			<div class="field">
+		    <%= f.label 'Does not combine with:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_shirts, :id, :name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label 'Does not combine with:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_shoes, :id, :name %>
+		  </div>
+		<% end %>
+		<% if @garment.category == 'Shoes' %>
+			<div class="field">
+		    <%= f.label 'Does not combine with:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_shirts, :id, :name %>
+		  </div>
+		  <div class="field">
+		    <%= f.label 'Does not combine with:' %><br>
+		    <%= f.collection_check_boxes :bad_combination_ids, @garments_pants, :id, :name %>
+		  </div>
+		<% end %>
+
+	  <%= f.submit 'Save', class: 'btn btn-lg btn-primary' %>
+	<% end %>
 </div>

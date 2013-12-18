@@ -1,7 +1,7 @@
 <%= render partial: 'header' %>
 <div class="show">
 	<h1><%= @garment.name %></h1>
-
+	<strong>Category: </strong> <%= @garment.category %><br>
 	<strong>Image:</strong>
 	<%= image_tag(@garment.image) %>
 
