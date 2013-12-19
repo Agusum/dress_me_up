@@ -155,6 +155,10 @@ img {
   border-bottom: 0;
 }
 
+.modal.in .modal-dialog {
+  margin-top: 200px;
+}
+
 /* Para hacer la tabla más pequeña. No sobreescribe a bootstrap
 .table {
   width: 1%;
