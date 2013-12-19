@@ -151,6 +151,10 @@ img {
 	margin-right: 20px;
 }
 
+.navbar-inverse .navbar-brand {
+  color: white;
+}
+
 /*
 td {
 	max-width: 200px;

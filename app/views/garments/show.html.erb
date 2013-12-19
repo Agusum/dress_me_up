@@ -9,7 +9,7 @@
 	<% @garment.bad_combinations.each do |garment| %>
 	<p><%= garment.name %></p>
 	<% end %>
-
+	<br>
 	<div class="center"><%= link_to "Edit", edit_garment_path(@garment), class: "btn btn-primary btn-lg"%></div>
 	<br></br>
 	<div class="center"><%= link_to "Get Outfit", outfit_index_path(@garment.category.downcase.to_sym => @garment), class: "btn btn-primary btn-lg"%></div>
