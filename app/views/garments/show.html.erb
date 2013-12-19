@@ -5,7 +5,7 @@
 	<strong>Image:</strong>
 	<%= image_tag(@garment.image) %>
 
-	<p><%= 'Bad combinations:' %></p>
+	<p><strong><%= 'Bad combinations:' %></strong></p>
 	<% @garment.bad_combinations.each do |garment| %>
 	<p><%= garment.name %></p>
 	<% end %>
