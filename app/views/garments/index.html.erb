@@ -15,10 +15,10 @@
   <tbody>
     <% @garments.each do |garment| %>
       <tr>
-        <td class="slim-name unseen"><%= garment.name %></td>
-        <td class="slim-image"><%= image_tag(garment.image) %></td>
-        <td class="slim-category unseen"><%= garment.category %></td>
-        <td class="slim-row">
+        <td class="unseen"><%= garment.name %></td>
+        <td><%= image_tag(garment.image) %></td>
+        <td class="unseen"><%= garment.category %></td>
+        <td>
           <div class="vertical-center">
           <ul class="btn-group btn-wardrobe">
             <li class="inline left"><%= link_to "", garment, class: "btn btn-info glyphicon-eye-open glyph"%></li>

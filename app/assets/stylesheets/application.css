@@ -17,6 +17,16 @@ li {
 	list-style-type: none;
 }
 
+img {
+	width: 200px;
+}
+
+#garment_name { width: 200px; }
+
+#garment_category {
+	width: 130px;
+}
+
 .no-margin {
 	margin: 0;
 }
@@ -58,10 +68,6 @@ li {
 	color: #FFFFFF;
 }
 
-img {
-	width: 200px;
-}
-
 .table-garments {
 	width: 452px;
 	margin-left:auto; 
@@ -74,7 +80,7 @@ img {
 
 
 .form {
-	width: 400px;
+	width: 200px;
 	margin-left:auto; 
     margin-right:auto;
 }
@@ -116,23 +122,6 @@ img {
 	border-radius: 6px;
 }
 
-.slim-row {
-	width: 34px;
-}
-
-
-.slim-category {
-	width: 34px;
-}
-
-.slim-image {
-	width: 34px;
-}
-
-.slim-name {
-	width: 34px;
-}
-
 /*Adjust margins when having a definite height of images*/
 .vertical-center {
 	margin-top: auto;
@@ -165,11 +154,6 @@ img {
   padding: 15px;
   border-bottom: 0;
 }
-
-/*
-td {
-	max-width: 200px;
-}*/
 
 /* Para hacer la tabla más pequeña. No sobreescribe a bootstrap
 .table {
