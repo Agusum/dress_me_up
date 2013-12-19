@@ -155,6 +155,12 @@ img {
   color: white;
 }
 
+.modal-custom {
+  min-height: 16.428571429px;
+  padding: 15px;
+  border-bottom: 0;
+}
+
 /*
 td {
 	max-width: 200px;
