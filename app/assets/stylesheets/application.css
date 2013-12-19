@@ -8,9 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require bootstrap
  *= require_self
  *= require_tree .
- *= require bootstrap
  */
 
 li { 
@@ -133,6 +133,24 @@ img {
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
+@media screen and (min-width: 768px) {
+  .modal-dialog {
+    width: 250px;
+    margin: 30px auto;
+  }
+}
+
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.margin-right {
+	margin-right: 20px;
+}
+
 /*
 td {
 	max-width: 200px;

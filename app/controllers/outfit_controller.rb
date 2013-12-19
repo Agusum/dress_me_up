@@ -12,6 +12,5 @@ class OutfitController < ApplicationController
 	  @garments_shirts = @garment.get_garments(@garments, "Shirt")
 	  @garments_pants = @garment.get_garments(@garments, "Pants")
 	  @garments_shoes = @garment.get_garments(@garments, "Shoes")
-
   end
 end

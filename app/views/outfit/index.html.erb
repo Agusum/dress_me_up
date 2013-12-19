@@ -3,7 +3,7 @@
 <div class="center row">
 	<h1>Today's Outfit</h1>
 	<div class="cont">
-	  <div class="garment inline">
+	  <div class="inline">
 			<% if @outfit[:shirt] == nil %>
 				<p><%= image_tag("shirt-placeholder.png") %></p>
 				<p>You have no shirt that match the rest of the outfit</p>
@@ -16,15 +16,15 @@
 
 	  <div class="inline">
 			<ul class="btn-group btn-lg">
-	      <li><%= link_to "", outfit_index_path(pants: @outfit[:pants], shoes: @outfit[:shoes]), class: "btn btn-primary glyphicon-refresh plus"%></li>
+	      <li><%= link_to "", outfit_index_path(pants: @outfit[:pants], shoes: @outfit[:shoes]), class: "btn btn-primary glyphicon-refresh glyph"%></li>
 	      <br>
-	      <li><%= link_to "", garments_path, class: "btn btn-warning glyphicon-ban-circle plus"%></li>
+	      <li class="btn btn-warning glyphicon-ban-circle glyph" data-toggle="modal" data-target="#ModalShirt"></li>
 	    </ul>
 	  </div>
 	</div>
 
 	<div class="cont">
-	  <div class="garment inline">
+	  <div class="inline">
 			<% if @outfit[:pants] == nil %>
 				<p><%= image_tag("pants-placeholder.jpg") %></p>
 				<p>Pants: You have no pants that match the rest of the outfit</p>
@@ -37,15 +37,15 @@
 
 		<div class="inline">
 			<ul class="btn-group btn-lg">
-	      <li><%= link_to "", outfit_index_path(shirt: @outfit[:shirt], shoes: @outfit[:shoes]), class: "btn btn-primary glyphicon-refresh plus"%></li>
+	      <li><%= link_to "", outfit_index_path(shirt: @outfit[:shirt], shoes: @outfit[:shoes]), class: "btn btn-primary glyphicon-refresh glyph"%></li>
 	      <br>
-	      <li><%= link_to "", garments_path, class: "btn btn-warning glyphicon-ban-circle plus"%></li>
+	      <li class="btn btn-warning glyphicon-ban-circle glyph" data-toggle="modal" data-target="#ModalPants"></li>
 	    </ul>
 	  </div>
 	</div>
 
 	<div class="cont">
-	  <div class="garment inline">
+	  <div class="inline">
 			<% if @outfit[:shoes] == nil %>
 				<p><%= image_tag("shoes-placeholder.jpg") %></p>
 				<p>You have no shoes that match the rest of the outfit</p>
@@ -58,14 +58,74 @@
 
 		<div class="inline">
 			<ul class="btn-group btn-lg">
-	      <li><%= link_to "", outfit_index_path(shirt: @outfit[:shirt], pants: @outfit[:pants]), class: "btn btn-primary glyphicon-refresh plus"%></li>
+	      <li><%= link_to "", outfit_index_path(shirt: @outfit[:shirt], pants: @outfit[:pants]), class: "btn btn-primary glyphicon-refresh glyph"%></li>
 	      <br>
-	      <li><%= link_to "", garments_path, class: "btn btn-warning glyphicon-ban-circle plus"%></li>
+	      <li class="btn btn-warning glyphicon-ban-circle glyph" data-toggle="modal" data-target="#ModalShoes"></li>
 	    </ul>
 	  </div>
 	</div>
 
 	<p></p>
-	<a href=""><button type="button" class="btn btn-primary btn-lg">Random Outfit</button></a>
+	<a href="/"><button type="button" class="btn btn-primary btn-lg">Random Outfit</button></a>
 </div>
 <p></p>
+
+<!-- Modal Shirts-->
+<div class="modal fade" id="ModalShirt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Doesn't combine with?</h4><br>
+        <div class="center">
+        	<ul class="btn-group btn-lg">
+	        	<li class="inline left margin-right"><%= link_to "Pants", garment_nomatching_path(@outfit[:shirt], nomatch: @outfit[:pants]), class: "btn btn-primary"%></li>
+	        	<li class="inline"><%= link_to "Shoes", garment_nomatching_path(@outfit[:shirt], nomatch: @outfit[:shoes]), class: "btn btn-primary"%></li>
+	        </ul>
+	        <br>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Pants-->
+<div class="modal fade" id="ModalPants" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Doesn't combine with?</h4><br>
+        <div class="center">
+        	<ul class="btn-group btn-lg">
+	        	<li class="inline left margin-right"><%= link_to "Shirt", garment_nomatching_path(@outfit[:pants], nomatch: @outfit[:shirt]), class: "btn btn-primary"%></li>
+	        	<li class="inline"><%= link_to "Shoes", garment_nomatching_path(@outfit[:pants], nomatch: @outfit[:shoes]), class: "btn btn-primary"%></li>
+	        </ul>
+	        <br>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Modal Shoes-->
+<div class="modal fade" id="ModalShoes" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Doesn't combine with?</h4><br>
+        <div class="center">
+        	<ul class="btn-group btn-lg">
+	        	<li class="inline left margin-right"><%= link_to "Shirt", garment_nomatching_path(@outfit[:shoes], nomatch: @outfit[:shirt]), class: "btn btn-primary"%></li>
+	        	<li class="inline"><%= link_to "pants", garment_nomatching_path(@outfit[:shoes], nomatch: @outfit[:pants]), class: "btn btn-primary"%></li>
+	        </ul>
+	        <br>
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

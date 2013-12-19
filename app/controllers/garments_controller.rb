@@ -1,5 +1,5 @@
 class GarmentsController < ApplicationController
-  before_action :set_garment, only: [:show, :edit, :update, :destroy]
+  before_action :set_garment, only: [:show, :edit, :update, :destroy, :nomatching]
 
   # GET /garments
   # GET /garments.json
@@ -77,6 +77,14 @@ class GarmentsController < ApplicationController
       format.html { redirect_to garments_url }
       format.json { head :no_content }
     end
+  end
+
+  # PUT /garments/1/nomatching
+  def nomatching
+    nomatch = Garment.find(params[:nomatch])
+    @garment.bad_combinations << nomatch
+
+    redirect_to :root
   end
 
   private
