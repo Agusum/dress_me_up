@@ -6,19 +6,18 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th class="center">Garment</th>
+      <th class="center unseen">Garment</th>
       <th class="center">Image</th>
-      <th class="center">Category</th>
+      <th class="center unseen">Category</th>
     </tr>
   </thead>
 
   <tbody>
     <% @garments.each do |garment| %>
       <tr>
-        <td class="slim-name"><%= garment.name %></td>
+        <td class="slim-name unseen"><%= garment.name %></td>
         <td class="slim-image"><%= image_tag(garment.image) %></td>
-        
-        <td class="slim-category"><%= garment.category %></td>
+        <td class="slim-category unseen"><%= garment.category %></td>
         <td class="slim-row">
           <div class="vertical-center">
           <ul class="btn-group btn-wardrobe">
